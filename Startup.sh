@@ -3,7 +3,7 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 curl -sSL https://get.rvm.io | bash -s stable
 gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 curl -sSL https://get.rvm.io | bash -s stable
-source /home/Buldozer/.rvm/scripts/rvm
+source ~/.rvm/scripts/rvm
 rvm requirements
 rvm install 2.4.1
 rvm use 2.4.1 --default
@@ -15,7 +15,7 @@ sudo apt-get install -y mongodb-org
 sudo systemctl start mongod
 sudo systemctl enable mongod
 git clone https://github.com/Artemmkin/reddit.git
-source /home/Buldozer/.rvm/scripts/rvm
+source ~/.rvm/scripts/rvm
 rvm requirements
 rvm use 2.4.1 --default
 cd reddit && bundle install
