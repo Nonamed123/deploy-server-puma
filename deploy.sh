@@ -5,4 +5,4 @@ rvm requirements
 rvm use 2.4.1 --default
 cd reddit && bundle install
 puma -d
-
+ps aux | grep puma
