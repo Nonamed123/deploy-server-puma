@@ -15,8 +15,5 @@ sudo apt-get install -y mongodb-org
 sudo systemctl start mongod
 sudo systemctl enable mongod
 git clone https://github.com/Artemmkin/reddit.git
-source ~/.rvm/scripts/rvm
-rvm requirements
-rvm use 2.4.1 --default
 cd reddit && bundle install
 puma -d
