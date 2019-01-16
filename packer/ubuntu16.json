@@ -1,0 +1,24 @@
+{
+"variables": {
+"proj_id": "testdevops",
+"machine_type": null
+},
+"builders": [
+{
+"type": "googlecompute",
+"project_id": "{{user `proj_id`}}",
+"image_name": "reddit-base-{{timestamp}}",
+"source_image": "ubuntu-1604-xenial-v20170815a",
+"zone": "europe-west1-b",
+"ssh_username": “Buldozer",
+"machine_type": "{{user `machine_type`}}"
+}
+],
+"provisioners": [
+{
+"type": "shell",
+"script": "Startup.sh",
+"execute_command": "sudo {{.Path}}"
+}
+]
+}
