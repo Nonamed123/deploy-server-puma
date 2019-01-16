@@ -1,23 +1,24 @@
 {
-"variables": {
-"proj_id": "testdevops",
-"machine_type": null
-},
+
 "builders": [
 {
 "type": "googlecompute",
-"project_id": "{{user `proj_id`}}",
+"project_id": "testdevops",
 "image_name": "reddit-base-{{timestamp}}",
-"source_image": "ubuntu-1604-xenial-v20170815a",
+"source_image": "ubuntu-1604-xenial-v20190112",
 "zone": "europe-west1-b",
-"ssh_username": “Buldozer",
-"machine_type": "{{user `machine_type`}}"
+"ssh_username": "Buldozer",
+"machine_type": "f1-micro"
 }
 ],
 "provisioners": [
 {
 "type": "shell",
-"script": "Startup.sh",
+"script": "scripts/install_ruby.sh"
+},
+{
+"type": "shell",
+"script": "scripts/install_mongodb.sh",
 "execute_command": "sudo {{.Path}}"
 }
 ]
