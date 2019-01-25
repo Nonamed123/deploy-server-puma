@@ -12,6 +12,7 @@
 
 #PROGRAM_HOME домашняя директория программы (для запуска\остановки)
 export PROGRAM_HOME=/home/Buldozer/reddit
+PROGRAM_USAGE="Usage: $0 {\e[00;32mstart\e[00m|\e[00;31mstop\e[00m|\e[00;31mkill\e[00m|\e[00;32mstatus\e[00m|\e[00;31mrestart\e[00m}"
 program_pid() {
     echo $(ps aux | grep puma | grep -v grep | tr -s " "|cut -d" " -f2)
 }
@@ -44,5 +45,7 @@ case $1 in
         exit $?
     ;;
     *)
+        echo -e ${PROGRAM_USAGE}
+    ;;
 esac
 exit 0
