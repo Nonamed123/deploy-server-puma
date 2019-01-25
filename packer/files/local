@@ -12,5 +12,19 @@
 
 #PROGRAM_HOME домашняя директория программы (для запуска\остановки)
 export PROGRAM_HOME=/home/Buldozer/reddit
-cd ${PROGRAM_HOME}
-puma -d
+program_pid() {
+    echo $(ps aux | grep puma | grep -v grep | tr -s " "|cut -d" " -f2)
+}
+start() {
+    pid=$(program_pid)
+    if [ -n "$pid" ]
+        then
+        echo -e "\e[00;31mProgram is already running (pid: $pid)\e[00m"
+    else
+        echo -e "\e[00;32mStarting Program\e[00m"
+        cd ${PROGRAM_HOME}
+        puma -d
+        status
+  fi
+  return 0
+}
