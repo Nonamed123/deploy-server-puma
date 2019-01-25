@@ -34,6 +34,32 @@ start() {
   return 0
 }
 
+status(){
+          pid=$(program_pid)
+          if [ -n "${pid}" ]
+            then echo -e "\e[00;32mProgram is running with pid: ${pid}\e[00m"
+          else
+            echo -e "\e[00;31mProgram is not running\e[00m"
+            return 3
+          fi
+}
+
+terminate() {
+    echo -e "\e[00;31mTerminating Program\e[00m"
+    kill -9 $(program_pid)
+}
+
+stop() {
+  pid=$(program_pid)
+  if [ -n "$pid" ]; then
+    echo -e "\e[00;31mStoping Program\e[00m"
+    terminate
+  else
+    echo -e "\e[00;31mProgram is not running\e[00m"
+  fi
+
+  return 0
+}
 
 case $1 in
     start)
