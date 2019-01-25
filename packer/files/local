@@ -28,3 +28,4 @@ start() {
   fi
   return 0
 }
+exit 0
