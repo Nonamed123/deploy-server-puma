@@ -43,7 +43,6 @@ case $1 in
         exit $?
     ;;
     *)
-        echo -e ${PROGRAM_USAGE}
-    ;;
+
 esac
 exit 0
