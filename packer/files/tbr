@@ -21,16 +21,9 @@ program_pid() {
 }
 
 start() {
-    pid=$(program_pid)
-    if [ -n "$pid" ]
-        then
-        echo -e "\e[00;31mProgram is already running (pid: $pid)\e[00m"
-    else
-        echo -e "\e[00;32mStarting Program\e[00m"
         cd ${PROGRAM_HOME}
         puma -d
         status
-  fi
   return 0
 }
 
