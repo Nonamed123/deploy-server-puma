@@ -13,13 +13,6 @@
 #PROGRAM_HOME домашняя директория программы (для запуска\остановки)
 export PROGRAM_HOME=/home/Buldozer/reddit
 
-#PROGRAM_USAGE сообщение-подсказка при обращении к программе
-PROGRAM_USAGE="Usage: $0 {\e[00;32mstart\e[00m|\e[00;31mstop\e[00m|\e[00;31mkill\e[00m|\e[00;32mstatus\e[00m|\e[00;31mrestart\e[00m}"
-
-program_pid() {
-    echo $(ps aux | grep puma | grep -v grep | tr -s " "|cut -d" " -f2)
-}
-
 start() {
         cd ${PROGRAM_HOME}
         puma -d
